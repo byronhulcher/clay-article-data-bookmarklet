@@ -229,19 +229,13 @@
 		 			<!-- Dialog action bar -->
 		 			<div class="dialogActionBar">
 				<!-- Buttons -->
-				<a class="buttonTouchTarget" id="buttonOneTouchTarget" title="Clay Article Data" href="javascript:void%20function(){var%20o=document.getElementsByTagName(%22article%22)[0].getAttribute(%22data-uri%22),t=new%20URL(window.location.protocol+%22//%22+o);window.location.port%26%26(t.port=window.location.port);var%20n=window.open(t.href,%22_blank%22);n.focus()}();">
+				<a class="buttonTouchTarget" id="buttonOneTouchTarget" title="Clay Article Data" href="javascript:void%20function(){var%20o=document.getElementsByTagName(%22article%22)[0].getAttribute(%22data-uri%22),t=new%20URL(window.location.protocol+%22//%22+o);window.location.port%26%26(t.port=window.location.port);var%20n=window.open(t.href,%22_blank%22);n.focus()}();" onclick="return false;">
 				<div class="buttonFlat" id="buttonOne" fit>Clay Article Data</div>
 				</a>
 			</div>
 		</div>
 	</div>
 </div>
-<script src="http://minifiedjs.com/download/minified-web.js">
-<script>
-	$('a').on('click', function(e) {
-	  e.preventDefault();
-	});
-</script>
 
 <!--
 // This is the original code for the bookmarklet 
