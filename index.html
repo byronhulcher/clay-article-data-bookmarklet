@@ -1,0 +1,257 @@
+<title>Quick Clay Article Data</title>
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:creator" content="@hypirlink" />
+<meta property="og:url" content="https://byronhulcher.github.io/clay-article-data-bookmarklet/" />
+<meta property="og:title" content="Quick Clay Article Data" />
+<meta property="og:description" content="Bookmarklet to easily open up the data for a Clay article" />
+<meta property="og:image" content="https://byronhulcher.github.io/clay-article-data-bookmarklet/clay-thing.w300.png" />
+<link rel='shortcut icon' type='image/x-icon' href='https://byronhulcher.github.io/clay-article-data-bookmarklet/favicon.ico' />
+<style>
+	body {
+		background-color: #B0E0E6;
+		/* Remove space around window edge */
+		margin-top: 0;
+		margin-left: 0;
+		margin-right: 0;
+		margin-bottom: 0;
+	  font-family: "Comic Sans MS", "Comic Sans", cursive;
+	}
+	/*
+	The attributes below style the css
+	property transitions.
+	*/
+	div {
+	  -webkit-transition-property: all;
+	  -webkit-transition-duration: 0.2s;
+	  -webkit-transition-timing-function: ease;
+	  -webkit-transition-delay: 0s;
+	}
+	/*
+	The two classes below work together
+	to center the content vertically and
+	horizontally on the screen.
+	*/
+	.wrapperOutside {
+	   display: table;
+	   width: 100vw;
+	   height: 100vh;
+	}
+	.wrapperInside {
+	   display: table-cell;
+	   text-align: center;
+	   vertical-align: middle;
+	}
+	/*
+	The attributes below style the css
+	dialog window, and content.
+	*/
+	.dialogContainer {
+	  /* Form */
+	  width: 300px;
+	  height: auto;
+	  /*
+	  Drop Shadow
+	  a. Horizontal shadow
+	  b. Vertical shadow
+	  c. Blur
+	  d. Spread
+	  e. Color
+	  */
+	  -webkit-box-shadow: 0 -2px 25px 0 rgba(0, 0, 0, 0.15), 0 13px 25px 0 rgba(0, 0, 0, 0.3);
+	  background-color: #FFFFFF;
+	  /* Internal padding */
+	  padding-top: 0;
+	  padding-left: 0;
+	  padding-right: 0;
+	  padding-bottom: 0;
+	  /* External padding */
+	  margin-top: 0;
+	  margin-left: auto;
+	  margin-right: auto;
+	  margin-bottom: 0; 
+	}
+	.dialogContent { 
+	  /* Form */   
+	  width: auto;
+	  height: auto;
+	  background-color: #FFFFFF;
+	  /* Corner radius */
+	  border-top-left-radius:2px;
+	  border-top-right-radius:2px;
+	  border-bottom-right-radius:0;
+	  border-bottom-left-radius:0;    
+	  /* Internal padding */
+	  padding-top: 21px;
+	  padding-left: 24px;
+	  padding-right: 24px;
+	  padding-bottom: 12px;
+	  /* External padding */
+	  margin-top: 0;
+	  margin-left: 0;
+	  margin-right: 0;
+	  margin-bottom: 0;     
+	}
+	.dialogContentTitle {
+	  /* Form */  
+	  background-color: #FFFFFF; 
+	  /* Typography */  
+	  font-family: "Comic Sans MS", "Comic Sans", cursive;
+	  font-weight: 700;
+	  font-size: 20px;
+	  color: rgba(0,0,0,.8);
+	  line-height: 24px;  
+	  text-align: left;
+	  letter-spacing: 0.03px;
+	  /* Internal padding */
+	  padding-top: 0;
+	  padding-left: 0;
+	  padding-right: 0;
+	  padding-bottom: 0;
+	  /* External padding */
+	  margin-top: 0;
+	  margin-left: 0;
+	  margin-right: 0;
+	  margin-bottom: 0;    
+	}
+	.dialogContentBody {
+	  /* Typography */
+	  font-family: "Comic Sans MS", "Comic Sans", cursive;
+	  font-weight: 500;
+	  font-size: 16px;
+	  color: rgba(0,0,0,.7);
+	  line-height: 24px;    
+	  text-align: left;
+	  letter-spacing: 0.03px;
+	  /* Internal padding */
+	  padding-top: 14px;
+	  padding-left: 0;
+	  padding-right: 0;
+	  padding-bottom: 0;   
+	  /* External padding */
+	  margin-top: 0;
+	  margin-left: 0;
+	  margin-right: 0;
+	  margin-bottom: 0;       
+	}
+	.dialogActionBar {
+	  /* Form */
+	  width: auto;
+	  height: 48px;
+	  background-color: #FFFFFF;
+	  text-align: center;
+	  /* Corner radius */
+	  border-top-left-radius:0;
+	  border-top-right-radius:0;
+	  border-bottom-right-radius:2px;
+	  border-bottom-left-radius:2px;  
+	  /* Internal padding */
+	  padding-top: 0;
+	  padding-left: 16px;
+	  padding-right: 15px;
+	  padding-bottom: 8px;  
+	  /* External padding */
+	  margin-top: 0;
+	  margin-left: 0;
+	  margin-right: 0;
+	  margin-bottom: 0;      
+	}
+	/*
+	The attributes below style the
+	hit target.
+	*/
+	.buttonTouchTarget {
+	  display: inline-block;
+	  background-color: rgba(0,0,0,0);
+	  /* Remove grey background on link clicked in ios safari */
+	  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	}
+	/*
+	The attributes below style the
+	flat button based on the Google
+	material design language.
+	*/
+	.buttonFlat {
+	  /* Form */
+	  display: inline-block;
+	  height: 36px;
+	  background-color: rgba(9,9,9,0);
+	  /* Typography */
+	  font-family: "Comic Sans MS", "Comic Sans", cursive;
+	  font-weight: 600;
+	  font-size: 14px;
+	  color:#b76780;
+	  line-height: 36px;    
+	  text-align: center;
+	  letter-spacing: 0.4px;     
+	  /* Internal padding */
+	  padding-top: 0;
+	  padding-left: 10px;
+	  padding-right: 10px;
+	  padding-bottom: 0;
+	  /* External padding – Touch target size */
+	  margin-top: 6px;
+	  margin-left: 4px;
+	  margin-right: 4px;
+	  margin-bottom: 6px;
+	  border-radius: 10px;
+	  font-size:0;
+	  transition: .5s;
+	}
+	.buttonFlat:hover {
+	  background-color: #f9dae6;
+	}
+	.buttonFlat:active {
+	  background-color:#f9dae6;
+	}
+	.buttonFlat::after {
+	  font-weight: 600;
+	  font-size: 16px;
+	  color:#b76780;
+	  line-height: 36px;    
+	  text-align: center;
+	  letter-spacing: 0.4px;     
+	  content: "Drag or right-click here";
+	}
+</style>
+
+<!-- Content wrapper -->
+<div class="wrapperOutside">
+	<div class="wrapperInside">
+		<!-- Dialog -->
+		<div class="dialogContainer">
+			<!-- Dialog title and body -->
+			<div class="dialogContent">
+				<div class="dialogContentTitle">Quick Clay Article Data</div>
+				<div class="dialogContentBody">Either drag the link below to your bookmarks bar or right-click, copy the address, and then create a new bookmark. 
+<br><br>
+					Then click the bookmark anytime you're on a Clay article page and to pull up the data instantly.</div>
+				</div>
+		 			<!-- Dialog action bar -->
+		 			<div class="dialogActionBar">
+				<!-- Buttons -->
+				<a class="buttonTouchTarget" id="buttonOneTouchTarget" title="Clay Article Data" href="javascript:void%20function(){var%20o=document.getElementsByTagName(%22article%22)[0].getAttribute(%22data-uri%22),t=new%20URL(window.location.protocol+%22//%22+o);window.location.port%26%26(t.port=window.location.port);var%20n=window.open(t.href,%22_blank%22);n.focus()}();">
+				<div class="buttonFlat" id="buttonOne" fit>Clay Article Data</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="http://minifiedjs.com/download/minified-web.js">
+<script>
+	$('a').on('click', function(e) {
+	  e.preventDefault();
+	});
+</script>
+
+<!--
+// This is the original code for the bookmarklet 
+
+var articleUri = document.getElementsByTagName('article')[0].getAttribute('data-uri');
+var temporaryURL = new URL(window.location.protocol + "//" + articleUri);
+if (window.location.port){
+  temporaryURL.port = window.location.port;
+}
+var newWindow = window.open(temporaryURL.href, '_blank');
+newWindow.focus();
+
+-->
